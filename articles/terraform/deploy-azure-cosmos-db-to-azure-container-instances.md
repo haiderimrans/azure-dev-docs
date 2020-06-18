@@ -84,6 +84,25 @@ In this section, you use several Terraform commands to run the configuration.
     ```bash
     terraform plan --out plan.out
     ```
+    
+  Note: If you are getting error like "features": required field is not set
+        There is an issue with 2.0.0 azurem version. You have to setup provider manually.
+        
+            ```bash
+            code provider.tf
+            ```
+         Copy and paste the following Terraform configuration into the editor:      
+      
+            'provider "azurerm" {
+            version = "=2.0.0"
+            features {}
+            }
+            
+        Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
+
+        Run again terraform commmands: 
+        1. terraform inti 
+        2. terrafom plan --out plan.out
 
 1. The [terraform apply](https://www.terraform.io/docs/commands/apply.html) command is used to apply the configuration. The output file from the previous step is specified. This command causes the Azure resources to be created. Run the following command in Cloud Shell:
 
